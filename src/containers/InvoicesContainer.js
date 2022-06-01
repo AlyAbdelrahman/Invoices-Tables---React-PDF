@@ -9,6 +9,7 @@ import {
 import FirstInvoice from './FirstInvoice';
 import TableHeader from '../components/TableHeader';
 import TableBody from '../components/TableBody';
+import TableFooter from '../components/TableFooter';
 
 const styles = StyleSheet.create({
     page: {
@@ -23,6 +24,7 @@ export default function InvoicesContainer() {
                 <View>
                     <TableHeader />
                     <TableBody/>
+                    <TableFooter/>
                     <FirstInvoice />
                 </View>
             </Page>
