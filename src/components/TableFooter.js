@@ -131,7 +131,55 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         width: '100%'
-    }
+    },
+    centeredTextCell: {
+        display: 'flex',
+        flexDirection: 'row',
+        textAlign: 'center',
+    },
+    thirdFooterDatacenteredTextCellContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        borderWidth: 1,
+        borderColor: 'black',
+        width: '25%',
+        justifyContent: 'center',
+        textAlign: 'center',
+        height: 40
+    },
+    centeredTextCellContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        borderWidth: 1,
+        borderColor: 'black',
+        width: '25%',
+        justifyContent: 'center',
+        textAlign: 'center',
+        paddingTop: 2,
+        paddingBottom: 2
+    },
+    thirdFooterHeader: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    thirdFooter: {
+        display: 'flex',
+    },
+    sign: {
+        width: '20%',
+        justifyContent: 'center',
+        display: 'flex',
+        textAlign: 'center',
+        borderRightWidth: 1
+    },
+    signPlace: {
+        width: '80%'
+    },
+    thirdFooterData: {
+        display: 'flex',
+        flexDirection: 'row'
+    }          
+
 })
 export default function TableFooter() {
     return (
@@ -227,10 +275,42 @@ export default function TableFooter() {
                 </View>
             </View>
             <View style={styles.thirdFooter}>
-                <View></View>
-                <View></View>
-                <View></View>
-                <View></View>
+                <View style={styles.thirdFooterHeader}>
+                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>Prepared byWHs Section Head</Text></View>
+                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>Chief Financial officer (Approval)</Text></View>
+                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>              </Text></View>
+                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>Chief Operation Officer
+                        (Approval)</Text></View>
+                </View>
+                <View style={styles.thirdFooterData}>
+                    <View style={styles.thirdFooterDatacenteredTextCellContainer}>
+                        <View style={styles.sign}>
+                            <Text style={styles.smallText}>Signature & Date</Text>
+                        </View>
+                        <View style={styles.signPlace}></View>
+                    </View>
+                    <View style={styles.thirdFooterDatacenteredTextCellContainer}>
+                        <View style={styles.sign}>
+                            <Text style={styles.smallText}>Signature & Date</Text>
+                        </View>
+                        <View style={styles.signPlace}></View>
+                    </View>
+                    <View style={styles.thirdFooterDatacenteredTextCellContainer}>
+                        <View style={styles.sign}>
+                            <Text style={styles.smallText}>Signature & Date</Text>
+                        </View>
+                        <View style={styles.signPlace}></View>
+                    </View>
+                    <View style={styles.thirdFooterDatacenteredTextCellContainer}>
+                        <View style={styles.sign}>
+                            <Text style={styles.smallText}>Signature & Date</Text>
+                        </View>
+                        <View style={styles.signPlace}></View>
+                    </View>
+                    {/* <View style={styles.centeredTextCellContainer}></View>
+                    <View style={styles.centeredTextCellContainer}></View>
+                    <View style={styles.centeredTextCellContainer}></View> */}
+                </View>
             </View>
 
         </View>
