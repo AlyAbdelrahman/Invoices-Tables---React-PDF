@@ -22,8 +22,11 @@ import SecondInvoice from './SecondInvoice';
 //   });
 const styles = StyleSheet.create({
     page: {
+        display: 'flex',
         flexDirection: "column",
-        padding: 3,
+        paddingLeft:20,
+        paddingRight: 75,
+        paddingBottom: 5
         // fontFamily: "Roboto"
     }
 })
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
 export default function InvoicesContainer() {
     return (
         <Document>
-            <Page style={styles.page} wrap  orientation='landscape'>
+            <Page style={styles.page} wrap  orientation='landscape' >
                 {/* <View>
                     <TableHeader logoTitle="Purchase Requisition" hasAFE={false}/>
                     <TableBody/>

@@ -283,14 +283,14 @@ export default function TableFooter({ prTable }) {
             </View>
             <View style={styles.thirdFooter}>
                 <View style={styles.thirdFooterHeader}>
-                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText, prTable && styles.centerdTextCellContainerPrTable]}>Prepared byWHs Section Head</Text></View>
+                    <View style={[styles.centeredTextCellContainer, styles.centerdTextCellContainerPrTable]}><Text style={[styles.centeredTextCell, styles.smallText, prTable && styles.centerdTextCellContainerPrTable]}>Prepared byWHs Section Head</Text></View>
                     {!prTable && (
                         <Fragment>
                             <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>Chief Financial officer (Approval)</Text></View>
                             <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>              </Text></View>
                         </Fragment>
                     )}
-                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText, prTable && styles.centerdTextCellContainerPrTable]}>Chief Operation Officer
+                    <View style={[styles.centeredTextCellContainer, styles.centerdTextCellContainerPrTable]}><Text style={[styles.centeredTextCell, styles.smallText, prTable && styles.centerdTextCellContainerPrTable]}>Chief Operation Officer
                         (Approval)</Text></View>
                 </View>
                 <View style={styles.thirdFooterData}>
