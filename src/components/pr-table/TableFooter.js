@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import {
     Text,
     View,
@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         paddingLeft: 2
+    },
+    tableBigUseForCell: {
+        width: '80%',
     },
     cellDataContainer: {
         display: 'flex',
@@ -158,6 +161,9 @@ const styles = StyleSheet.create({
         paddingTop: 2,
         paddingBottom: 2
     },
+    centerdTextCellContainerPrTable: {
+        width: '50%',
+    },
     thirdFooterHeader: {
         display: 'flex',
         flexDirection: 'row'
@@ -178,10 +184,10 @@ const styles = StyleSheet.create({
     thirdFooterData: {
         display: 'flex',
         flexDirection: 'row'
-    }          
+    }
 
 })
-export default function TableFooter() {
+export default function TableFooter({ prTable }) {
     return (
         <View>
             <View style={styles.FirstFooter}>
@@ -207,7 +213,7 @@ export default function TableFooter() {
                         </View>
                     </View>
                 </View>
-                <View style={styles.tableUseForCell}>
+                <View style={[styles.tableUseForCell, prTable && styles.tableBigUseForCell]}>
                     <Text style={styles.smallText}>
                         Use For
                     </Text>
@@ -216,7 +222,7 @@ export default function TableFooter() {
                         <Text style={styles.smallText}> 189 test budget</Text>
                     </View>
                 </View>
-                <View style={styles.smallCellContainer}>
+                {!prTable && <View style={styles.smallCellContainer}>
                     <Text style={styles.smallText}>
                         AFE
                     </Text>
@@ -231,6 +237,7 @@ export default function TableFooter() {
 
                     </View>
                 </View>
+                }
                 <View></View>
             </View>
             <View style={styles.secondFooter}>
@@ -262,7 +269,7 @@ export default function TableFooter() {
                         </View>
                     </View>
                 </View>
-                <View style={[styles.fullWidthCell, styles.usedFor]}>
+                {!prTable && <View style={[styles.fullWidthCell, styles.usedFor]}>
                     <View style={styles.smallUsedForCellContainer}>
                         <Text style={styles.smallText}>
                             USED FOR
@@ -272,36 +279,43 @@ export default function TableFooter() {
                             <Text style={styles.smallText}> 189 test budget</Text>
                         </View>
                     </View>
-                </View>
+                </View>}
             </View>
             <View style={styles.thirdFooter}>
                 <View style={styles.thirdFooterHeader}>
-                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>Prepared byWHs Section Head</Text></View>
-                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>Chief Financial officer (Approval)</Text></View>
-                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>              </Text></View>
-                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>Chief Operation Officer
+                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText, prTable && styles.centerdTextCellContainerPrTable]}>Prepared byWHs Section Head</Text></View>
+                    {!prTable && (
+                        <Fragment>
+                            <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>Chief Financial officer (Approval)</Text></View>
+                            <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText]}>              </Text></View>
+                        </Fragment>
+                    )}
+                    <View style={styles.centeredTextCellContainer}><Text style={[styles.centeredTextCell, styles.smallText, prTable && styles.centerdTextCellContainerPrTable]}>Chief Operation Officer
                         (Approval)</Text></View>
                 </View>
                 <View style={styles.thirdFooterData}>
-                    <View style={styles.thirdFooterDatacenteredTextCellContainer}>
+                    <View style={[styles.thirdFooterDatacenteredTextCellContainer, prTable && styles.centerdTextCellContainerPrTable ]}>
                         <View style={styles.sign}>
                             <Text style={styles.smallText}>Signature & Date</Text>
                         </View>
                         <View style={styles.signPlace}></View>
                     </View>
-                    <View style={styles.thirdFooterDatacenteredTextCellContainer}>
-                        <View style={styles.sign}>
-                            <Text style={styles.smallText}>Signature & Date</Text>
-                        </View>
-                        <View style={styles.signPlace}></View>
-                    </View>
-                    <View style={styles.thirdFooterDatacenteredTextCellContainer}>
-                        <View style={styles.sign}>
-                            <Text style={styles.smallText}>Signature & Date</Text>
-                        </View>
-                        <View style={styles.signPlace}></View>
-                    </View>
-                    <View style={styles.thirdFooterDatacenteredTextCellContainer}>
+                    {!prTable && (
+                        <Fragment>
+                            <View style={styles.thirdFooterDatacenteredTextCellContainer}>
+                                <View style={styles.sign}>
+                                    <Text style={styles.smallText}>Signature & Date</Text>
+                                </View>
+                                <View style={styles.signPlace}></View>
+                            </View>
+                            <View style={styles.thirdFooterDatacenteredTextCellContainer}>
+                                <View style={styles.sign}>
+                                    <Text style={styles.smallText}>Signature & Date</Text>
+                                </View>
+                                <View style={styles.signPlace}></View>
+                            </View>
+                        </Fragment>)}
+                    <View style={[styles.thirdFooterDatacenteredTextCellContainer, prTable && styles.centerdTextCellContainerPrTable]}>
                         <View style={styles.sign}>
                             <Text style={styles.smallText}>Signature & Date</Text>
                         </View>

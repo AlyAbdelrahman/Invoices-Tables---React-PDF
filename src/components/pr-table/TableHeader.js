@@ -128,16 +128,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     logo: {
-        width:'100%',
+        width: '100%',
         height: '100%'
     },
     logoText: {
         fontSize: 12,
         fontWeight: 'bold',
-        fontStyle:''
+        fontStyle: ''
     }
 });
-export default function TableHeader() {
+export default function TableHeader({ logoTitle, prTable }) {
     return (
         <View style={styles.tableHeaderContainer} fixed>
             <View style={styles.tableHeaderDetails}>
@@ -193,16 +193,14 @@ export default function TableHeader() {
 
             <View style={styles.tableHeaderLogo}>
                 <View style={styles.logoContainer}>
-                    <Image src="assets/images/logo.png" style={styles.Logo}/>
+                    <Image src="assets/images/logo.png" style={styles.Logo} />
                 </View>
                 <Text style={styles.logoText}>Scimitar Production Egypt Ltd</Text>
-                <Text style={styles.logoText}>Purchase Requisition</Text>
+                <Text style={styles.logoText}>{logoTitle}</Text>
             </View>
 
             <View style={styles.tableHeaderExtraDetails}>
-                <View style={styles.emptyCellContainer} />
-
-
+                {!prTable && (<View style={styles.emptyCellContainer} />)}
                 <View style={styles.tableHeaderDetailsCellContainer}>
                     <Text style={[styles.tableHeaderDetailsRowTitle, styles.tableHeaderText]}>
                         Perority
@@ -240,7 +238,7 @@ export default function TableHeader() {
                     </View>
                 </View>
 
-                <View style={[styles.tableHeaderDetailsCellContainer, styles.noBottomBoder]}>
+                <View style={[styles.tableHeaderDetailsCellContainer, !prTable && styles.noBottomBoder]}>
                     <Text style={[styles.tableHeaderDetailsRowTitle, styles.tableHeaderText]}>
                         CUR
                     </Text>
@@ -270,6 +268,18 @@ export default function TableHeader() {
                         </View>
                     </View>
                 </View>
+
+                {prTable && <View style={[styles.tableHeaderDetailsCellContainer, styles.noBottomBoder]}>
+                    <Text style={[styles.tableHeaderDetailsRowTitle, styles.tableHeaderText]}>
+                        AFE#
+                    </Text>
+                    <Text style={styles.tableHeaderText}>:</Text>
+                    <View style={styles.tableHeaderDetailsRowDataContainer}>
+                        <Text style={[styles.tableHeaderDetailsRowData, styles.tableHeaderText]}>
+
+                        </Text>
+                    </View>
+                </View>}
 
 
             </View>

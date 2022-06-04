@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from '@react-pdf/renderer'
+import { View, StyleSheet, Text, Image } from '@react-pdf/renderer'
 import React from 'react'
 
 const styles = StyleSheet.create({
@@ -8,8 +8,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         borderTopWidth: 1,
         borderTopStyle: 'solid',
-        padding:10,
-        borderTopColor: 'darkyellow'
+        padding: 10,
+        borderTopColor: 'darkyellow',
+        marginTop: 30
     },
     addressContainerBox: {
         display: 'flex',
@@ -19,35 +20,40 @@ const styles = StyleSheet.create({
     },
     arabicAddressContainer: {
         minWidth: '50%',
-        maxWidth: '50%'
+        maxWidth: '50%',
+        display: 'flex',
+        flexDirection: 'row-reverse'
     },
     englishAddressContainer: {
         minWidth: '50%',
         maxWidth: '50%'
+    },
+    addressText: {
+        fontSize: 9
+    },
+    arabicArddress: {
+        height: 50,
+        width: '80%'
     }
 });
 
 export default function PoAddressFooter() {
-  return (
-    <View style={styles.addressContainer}>
-        <View style={styles.addressContainerBox}>
-            <View style={styles.arabicAddressContainer}>
-                <Text>Block-E, Plot # 5, 1st Settlement Service Center</Text>
-                <Text>New Cairo 114477, Cairo , Egypt</Text>
-                <Text>Tel: (202) 2247-0832</Text>
-                <Text>Fax: (202) 2247-0835</Text>
-                <Text>WebSite: http://www.testscimitaregypt.com</Text>
-            </View>
-            <View style={styles.englishAddressContainer}>
-                <Text>بلوك E قطعه # 5 مركز خدمات التجمع الاول</Text>
-                <Text>القاهره الجديده-11477 - القاهره - مصر</Text>
-                <Text>تليفون: (202) 2247-0832</Text>
+    return (
+        <View style={styles.addressContainer}>
+            <View style={styles.addressContainerBox}>
+                <View style={styles.englishAddressContainer}>
+                    <Text style={styles.addressText}>Block-E, Plot # 5, 1st Settlement Service Center</Text>
+                    <Text style={styles.addressText}>New Cairo 114477, Cairo , Egypt</Text>
+                    <Text style={styles.addressText}>Tel: (202) 2247-0832</Text>
+                    <Text style={styles.addressText}>Fax: (202) 2247-0835</Text>
+                    <Text style={styles.addressText}>WebSite: http://www.testscimitaregypt.com</Text>
+                </View>
+                <View style={styles.arabicAddressContainer} >
 
-                <Text>فاكس: (202) 2247-0835</Text>
-
+                    <Image src="assets/images/footerArabicAddress.PNG" style={styles.arabicArddress} />
+                </View>
             </View>
+
         </View>
-        
-    </View>
-  )
+    )
 }
